@@ -1,0 +1,141 @@
+//1.1 creating and accessing the arrays
+const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"]; 
+console.log(fruits);
+
+console.log(`First fruit: ${fruits[0]}`);
+
+console.log(`Last fruit: ${fruits[fruits.length - 1]}`);
+
+fruits.push("Pineapple");
+console.log("Array after adding 'Pineapple':", fruits);
+
+fruits.splice(1, 1);
+console.log("Array after removing the second fruit ('Banana'):", fruits);
+
+const arrayLength = fruits.length;
+console.log(`The length of the array is: ${arrayLength}`);
+
+//1.2 looping throough an array
+console.log("--- Using a for loop ---");
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+console.log("Using forEach()");
+fruits.forEach((fruit) => {
+    
+    console.log(fruit); 
+});
+
+
+
+
+//task 2 - Array Methods
+//2.1 transforming Arrays
+const numbers = [2, 5, 8, 10, 12]; // [cite: 33]
+console.log("Original numbers array:", numbers);
+
+const doubledNumbers = numbers.map(num => num * 2);
+console.log("Doubled numbers (map):", doubledNumbers);
+
+const greaterThanSix = numbers.filter(num => num > 6);
+console.log("Numbers greater than 6 (filter):", greaterThanSix);
+
+const sumOfNumbers = numbers.reduce((acc, currentNum) => acc + currentNum, 0);
+console.log("Sum of all numbers (reduce):", sumOfNumbers); 
+
+//2.2 searching and sorting
+console.log("Array for searching and sorting:", numbers);
+
+const includesEight = numbers.includes(8);
+console.log(`Does the array include the number 8? ${includesEight}`);
+
+const indexOfTen = numbers.indexOf(10);
+console.log(`The index of 10 is: ${indexOfTen}`);
+
+numbers.sort((a, b) => a - b);
+console.log("Array sorted in ascending order:", numbers);
+
+
+
+
+//3.1 task object basics [creating and accessing objects]
+const student = {
+    name: "Kavindu", 
+    age: 21, 
+    faculty: "Computing", 
+    subjects: ["Web Development", "Database Systems", "Programming"] 
+};
+
+console.log(`Student Name: ${student.name}`);
+
+console.log(`Student Faculty: ${student['faculty']}`);
+
+student.year = 2025;
+console.log("Student object after adding 'year':", student);
+
+student.age = 22;
+console.log(`Student's updated age: ${student.age}`);
+
+console.log("Student's subjects:");
+for (let i = 0; i < student.subjects.length; i++) {
+    console.log(`- ${student.subjects[i]}`);
+}
+
+
+
+
+//task 04 - Nested objeects and Arrays
+//4.1 Array of Objects 
+const students = [
+    { name: "Kavindu", age: 21, faculty: "Computing" }, // [cite: 64-68]
+    { name: "Nimesha", age: 22, faculty: "Engineering" }, // [cite: 69-73]
+    { name: "Dinuka", age: 23, faculty: "Business" } // [cite: 74-75]
+];
+
+console.log("--- All Student Names ---");
+students.forEach(s => console.log(s.name));
+
+const olderThan21 = students.filter(s => s.age > 21);
+console.log("Students older than 21 (filter):", olderThan21);
+console.log("Names of students older than 21:", olderThan21.map(s => s.name));
+
+const facultyNames = students.map(s => s.faculty);
+console.log("All faculty names (map):", facultyNames);
+
+//4.2 Object Containing an Array of Objects 
+const classroom = {
+    className: "IT2025", 
+    teacher: "Mr. Perera", 
+    students: [ 
+        { name: "Kavindu", age: 21 }, 
+        { name: "Nimesha", age: 22 }, 
+        { name: "Dinuka", age: 23 } 
+    ]
+};
+
+console.log(`Teacher's Name: ${classroom.teacher}`);
+
+classroom.students.push({ name: "Amali", age: 21 });
+console.log("Classroom students after adding 'Amali':", classroom.students);
+
+console.log("--- All Student Names in Classroom ---");
+classroom.students.forEach(s => console.log(s.name));
+
+
+
+
+//5.1 challenge activity
+const products = [
+    { name: "Keyboard", price: 2500, qty: 2 }, // [cite: 109-110]
+    { name: "Mouse", price: 1500, qty: 3 }, // [cite: 111-112]
+    { name: "Monitor", price: 22000, qty: 1 } // [cite: 113-114]
+];
+
+const totalValue = products.reduce((accumulator, product) => {
+    const productValue = product.price * product.qty;
+    return accumulator + productValue;
+}, 0);
+
+console.log("Product List:", products);
+console.log(`The total value of all products is: ${totalValue}`);
